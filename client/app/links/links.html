@@ -1,6 +1,6 @@
 <div id='container' ng-controller="LinksController">
   <!-- Your html here -->
-  <h1>Links</h1>
+  <h3>Links</h3>
 
   <ul>
     <li ng-repeat="link in data">
@@ -9,7 +9,7 @@
       <!-- original url -->
       <div class="orig-url">{{link.url}}</div>
       <!-- shortened url -->
-      <div class="short-url">{{link['base_url'] + '/' + link.code}}</div>
+      <div class="short-url">{{link['base_url'] + '/api/links/' + link.code}}</div>
       <!-- # of visits -->
       <div class="visits-num">{{link.visits}}</div>
     </li>
