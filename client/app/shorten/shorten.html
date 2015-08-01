@@ -2,8 +2,9 @@
 <!-- Your code here -->
   <h3>Shorten</h3>
 
-  <form name="shorten-form" ng-submit="shortenLink()">
-    <input type="text" ng-model="newLink">
-    <button>Submit</button>
+  <form name="shortenform" ng-submit="shortenLink(shorten-form.$valid)" novalidate>
+    <input type="url" name="newLink" ng-model="newLink" ng-class="{'error': shortenform.newLink.$invalid && shortenform.newLink.$dirty}" required />
+    <button type="submit" ng-disabled="shortenform.$invalid">Submit</button>
+    <p ng-show="shortenform.newLink.$invalid && shortenform.newLink.$dirty">Please enter a valid URL</p>
   </form>
 </div>
