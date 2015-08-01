@@ -10,6 +10,7 @@ angular.module('shortly.links', [])
       console.error(err);
     });
   };
+  $scope.getLinks();
 })
 .factory('Links', function($http){
 
