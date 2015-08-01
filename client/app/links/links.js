@@ -2,9 +2,10 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links) {
   angular.extend($scope, Links);
+  $scope.data = [];
   $scope.getLinks = function(){
-  // console.log('Get links button clicked');
     Links.getData().then(function(data){
+      console.log("data = ", data);
       $scope.data = data;
     }).catch(function(err){
       console.error(err);
@@ -13,23 +14,6 @@ angular.module('shortly.links', [])
   $scope.getLinks();
 })
 .factory('Links', function($http){
-
-  // var linksArray = [
-  //   {
-  //     title: "Hack Reactor",
-  //     url: "www.hackreactor.com",
-  //     'base-url': "http://localhost/",
-  //     code: "nfoqwhp9p4t8qp",
-  //     visits: 4
-  //   },
-  //   {
-  //     title: "Stack Overflow",
-  //     url: "www.stackoverflow.com",
-  //     'base-url': "http://localhost/",
-  //     code: "abcdefg123",
-  //     visits: 5
-  //   }
-  // ];
 
   var getData = function() {
     return $http({
@@ -42,7 +26,7 @@ angular.module('shortly.links', [])
   };
 
   var goToLink = function(){
-    // console.log('A link was clicked');
+    // sends the user to the actual site
   };
 
   return {
