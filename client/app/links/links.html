@@ -1,9 +1,9 @@
 <div id='container' ng-controller="LinksController">
   <!-- Your html here -->
   <h3>Links</h3>
-
+  <input ng-model="search">
   <ul>
-    <li ng-repeat="link in data">
+    <li ng-repeat="link in data | filter:search">
       <!-- title of the page -->
       <div class="title" ng-click="goToLink($index)"><a href={{link.url}}>{{link.title}}</a></div>
       <!-- original url -->
