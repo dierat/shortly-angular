@@ -4,9 +4,13 @@ angular.module('shortly.links', [])
   angular.extend($scope, Links);
   $scope.data = [];
 
+  $scope.goToLink = function(index){
+    // sends the user to the actual site
+    Links.getData('/api/links/' + $scope.data[index].code);
+  };
+
   $scope.getLinks = function(){
-    Links.getData().then(function(data){
-      console.log("data = ", data);
+    Links.getData('/api/links').then(function(data){
       $scope.data = data;
     }).catch(function(err){
       console.error(err);
@@ -16,12 +20,11 @@ angular.module('shortly.links', [])
 })
 .factory('Links', function($http){
 
-  var getData = function() {
+  var getData = function(url) {
     return $http({
       method: 'GET',
-      url: '/api/links'
+      url: url
     }).then(function(res){
-      console.log('res is', res, 'res.data is', res.data);
       return res.data;
     });
   };

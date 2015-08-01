@@ -75,11 +75,12 @@ module.exports = {
   navToLink: function (req, res, next) {
     var link = req.navLink;
     link.visits++;
+    console.log("Visits incremented! link.visits = ", link.visits);
     link.save(function (err, savedLink) {
       if (err) {
         next(err);
       } else {
-        res.redirect(savedLink.url);
+        //res.redirect(savedLink.url);
       }
     });
   }
