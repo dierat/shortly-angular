@@ -9,6 +9,7 @@ angular.module('shortly.shorten', [])
     $scope.sendData($scope.newLink).catch(function(err){
       console.error(err);
     });
+    $scope.newLink = '';
   }
 })
 .factory('Shorten', function($http){
