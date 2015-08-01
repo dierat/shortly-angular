@@ -3,11 +3,11 @@
   <h1>Links</h1>
 
   <ul>
-    <li ng-repeat="link in data" ng-click="goToLink()">
+    <li ng-repeat="link in data">
       <!-- title of the page -->
       <div class="title">{{link.title}}</div>
       <!-- original url -->
-      <div class="orig-url">{{link.url}}</div>
+      <div class="orig-url"><a href={{link.url}}>{{link.url}}</a></div>
       <!-- shortened url -->
       <div class="short-url">{{link['base_url'] + '/' + link.code}}</div>
       <!-- # of visits -->

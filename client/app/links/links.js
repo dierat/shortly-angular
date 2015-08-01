@@ -3,6 +3,7 @@ angular.module('shortly.links', [])
 .controller('LinksController', function ($scope, Links) {
   angular.extend($scope, Links);
   $scope.data = [];
+
   $scope.getLinks = function(){
     Links.getData().then(function(data){
       console.log("data = ", data);
@@ -25,12 +26,7 @@ angular.module('shortly.links', [])
     });
   };
 
-  var goToLink = function(){
-    // sends the user to the actual site
-  };
-
   return {
-    goToLink: goToLink,
     getData: getData
   };
 });
