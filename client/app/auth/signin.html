@@ -1,14 +1,16 @@
 <div id='signin'>
   <h1>signin</h1>
+
   <form name="signinForm" ng-submit='signin()'>
 
-    <input type='text' name="username" ng-model='user.username' ng-minlength="5" ng-maxlength="20" required>
-    <p ng-show="signinForm.username.$invalid && signinForm.username.$dirty">Please enter a username between 5 and 20 characters</p>
+    <input type='text' name="username" ng-model='user.username' ng-minlength="5" ng-maxlength="100" required>
+    <p ng-show="signinForm.username.$invalid && signinForm.username.$dirty">Please enter a username between 5 and 100 characters</p>
 
-    <input type="password" name="password" ng-model='user.password' ng-minlength="5" ng-maxlength="20" required>
-    <p ng-show="signinForm.password.$invalid && signinForm.password.$dirty">Please enter a password between 5 and 20 characters</p>
+    <input type="password" name="password" ng-model='user.password' ng-minlength="5" ng-maxlength="100" required>
+    <p ng-show="signinForm.password.$invalid && signinForm.password.$dirty">Please enter a password between 5 and 100 characters</p>
     <button ng-disabled="signinForm.$invalid">signin</button>
 
   </form>
+  
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
 </div>
