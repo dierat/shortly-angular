@@ -2,6 +2,11 @@
   <!-- Your html here -->
   <h3>Links</h3>
   <input ng-model="search">
+
+  <h3 ng-if="!data.length">
+    No links to click yet! Please add some in the <a href="/#/shorten">shorten</a> tab :)
+  </h3>
+
   <ul>
     <li ng-repeat="link in data | filter:search">
       <!-- title of the page -->
